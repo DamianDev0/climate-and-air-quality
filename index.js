@@ -63,13 +63,13 @@ searchButton.addEventListener('click', async () => {
         wind.innerHTML = `${Math.round(weatherData.wind.speed)} Km/h`;
 
         // Obtener calidad del aire
-        const airQualityResponse = await fetch(`http://api.openweathermap.org/data/2.5/air_pollution?lat=${weatherData.coord.lat}&lon=${weatherData.coord.lon}&appid=${APIKey}`);
+        const airQualityResponse = await fetch(`https://api.openweathermap.org/data/2.5/air_pollution?lat=${weatherData.coord.lat}&lon=${weatherData.coord.lon}&appid=${APIKey}`);
         const airQualityData = await airQualityResponse.json();
 
         if (airQualityData.list && airQualityData.list.length > 0) {
             const airQualityIndex = airQualityData.list[0].main.aqi;
             airQualityValue.textContent = `: ${airQualityIndex}`;
-            
+           
             // Actualizar indicador de color basado en AQI
             updateColorIndicator(airQualityIndex);
         }
@@ -77,7 +77,6 @@ searchButton.addEventListener('click', async () => {
         weatherBox.style.display = 'block';
         weatherDetails.style.display = 'block';
         container.style.height = '650px';
-        container.style.weight = '700px';
 
         // Animación fadeIn
         weatherBox.classList.add('fadeIn');
@@ -104,5 +103,5 @@ function updateColorIndicator(aqi) {
         document.querySelector('.unhealthy').style.display = 'block';
     } else if (aqi <= 8) {
         document.querySelector('.hazardous').style.display = 'block';
-    }
+    } 
 }

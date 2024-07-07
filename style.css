@@ -202,7 +202,7 @@ body{
     margin-right: 10px;
     border-radius: 5px;
     font-weight: bold;
-    box-shadow: 2px 2px 4px ;
+    box-shadow: 2px 2px 4px black;
 }
 
 .good {
